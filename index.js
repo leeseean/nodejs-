@@ -32,7 +32,7 @@ function getListIdsCallback(error, response, body) {
     if (!error && response.statusCode === 200) {
         const listIds = [];
         const $ = cheerio.load(body);
-        $('div.album_soundlist > ul > li > div > a.title').each((index, item) => {
+        $('li.rC5T a').each((index, item) => {
             listIds.push($(item).attr('href').split('/')[3]);
         });
         getAudioJson(listIds);
